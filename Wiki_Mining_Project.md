@@ -3,21 +3,22 @@ Analysis
 
 The following report consists of the analysis that we performed on the data that we scrapped from Wikipedia.
 
-| Category                           |                                                                                                                                                                                                                                                                                                                                                          Frequency|
-|:-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| People and Self                    |                                                                                                                                                                                                                                                                                                                                                               1554|
-| Culture and Arts                   |                                                                                                                                                                                                                                                                                                                                                               1042|
-| Geography and Places               |                                                                                                                                                                                                                                                                                                                                                                296|
-| History and Events                 |                                                                                                                                                                                                                                                                                                                                                                158|
-| Technology and Applied Sciences    |                                                                                                                                                                                                                                                                                                                                                                143|
-| Health and Fitness                 |                                                                                                                                                                                                                                                                                                                                                                140|
-| Society and Social Sciences        |                                                                                                                                                                                                                                                                                                                                                                131|
-| Natural and Physical Sciences      |                                                                                                                                                                                                                                                                                                                                                                121|
-| Religion and Belief Systems        |                                                                                                                                                                                                                                                                                                                                                                 96|
-| General Reference                  |                                                                                                                                                                                                                                                                                                                                                                 53|
-| Philosophy and Thinking            |                                                                                                                                                                                                                                                                                                                                                                 22|
-| Mathematic and Logics              |                                                                                                                                                                                                                                                                                                                                                                 20|
-| What can be seen in the table is t |  hat the number of observations between portals are vastly different. People and Self has the most observations (1554) while Culture and Arts have the second most observations (1042). The portal category which has the third highest observations is Geography and Places (296), followed by History and Events (158) and Technology and Applied Science (143).|
+| Category                        |  Frequency|
+|:--------------------------------|----------:|
+| People and Self                 |       1554|
+| Culture and Arts                |       1042|
+| Geography and Places            |        296|
+| History and Events              |        158|
+| Technology and Applied Sciences |        143|
+| Health and Fitness              |        140|
+| Society and Social Sciences     |        131|
+| Natural and Physical Sciences   |        121|
+| Religion and Belief Systems     |         96|
+| General Reference               |         53|
+| Philosophy and Thinking         |         22|
+| Mathematic and Logics           |         20|
+
+What can be seen in the table is that the number of observations between portals are vastly different. People and Self has the most observations (1554) while Culture and Arts have the second most observations (1042). The portal category which has the third highest observations is Geography and Places (296), followed by History and Events (158) and Technology and Applied Science (143).
 
 Because of the unbalance nature of the data between portal, a reasonable way is to draw a sample amount of samples from the top five portals. We used the following way to calculate the reasonable sample size in order to compare the difference between the top five portal groups with 80% of power.
 

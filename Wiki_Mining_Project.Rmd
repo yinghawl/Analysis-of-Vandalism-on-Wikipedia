@@ -46,6 +46,9 @@ geography <- subset(wiki,Portal=="Geography and Places")
 history <- subset(wiki,Portal=="History and Events")
 
 ```
+
+
+
 What can be seen in the table is that the number of observations between portals are vastly different. People and Self has the most observations (1554) while Culture and Arts have the second most observations (1042). The portal category which has the third highest observations is Geography and Places (296), followed by History and Events (158) and Technology and Applied Science (143). 
 
 Because of the unbalance nature of the data between portal, a reasonable way is to draw a sample amount of samples from the top five portals. We used the following way to calculate the reasonable sample size in order to compare the difference between the top five portal groups with 80% of power. 
@@ -146,7 +149,7 @@ kable(summarystatistics,caption="Table 2: Summary Statistics")
 ##### Exploratory Data Analysis
 ```{r echo=FALSE,comment="",fig.align='center'}
 # Boxplot of edit ratio for each portal #
-ggplot(wikifinal,aes(x=Portal,y=editratio,fill = Portal))+geom_boxplot()+ggtitle("Figure 1: Boxplot of Edit Ratio by Portals")
+ggplot(wikifinal,aes(x=Portal,y=editratio,fill = Portal))+geom_boxplot()+ggtitle("Figure 1: Boxplot of Edit Ratio by Portals")+theme( axis.text.x=element_blank())
 
 ```
 
