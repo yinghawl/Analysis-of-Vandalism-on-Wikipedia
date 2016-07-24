@@ -6,8 +6,8 @@ output:
  md_document:
     variant: markdown_github
 ---
-#####Codes for Analysis
-This following codes consist all the codes we used for the analysis of vandalism on the Wikipedia data.
+#Analysis
+The following report consists of the analysis that we performed on the data that we scrapped from Wikipedia. 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,comment=""} 
 require(MASS)
 require(car)
@@ -19,8 +19,7 @@ require(dplyr)
 require(GGally)
 ```
 
-#####Reading data
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 wiki <- read.csv("Wiki_final2.csv",header = TRUE,stringsAsFactors = FALSE) 
 wiki$editratio=wiki$Number.of.reverted.edits/wiki$Number.of.edits
 wiki$Page.View=as.integer(as.factor(wiki$Page.View))
@@ -31,7 +30,7 @@ wiki=wiki[!wiki$Portal=="",]
 ```
 
 
-```{r comment="",results="asis"}
+```{r echo=FALSE,comment="",results="asis"}
 
 freqcount=data.frame(table(wiki$Portal))
 
@@ -52,14 +51,14 @@ What can be seen in the table is that the number of observations between portals
 Because of the unbalance nature of the data between portal, a reasonable way is to draw a sample amount of samples from the top five portals. We used the following way to calculate the reasonable sample size in order to compare the difference between the top five portal groups with 80% of power. 
 
 The sample size is calculated by using power of 80% and delta of 0.3 which is recommeneded by most literatures.  
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 power.anova.test(power=0.8,between.var=0.0001981278,within.var=0.0092,group=5)
 ```
 
 
 Since Technology and Applied Science- the fifth largest groups have 143 samples in total, it is reasonable to draw 140 samples from each portal randomly without replacement. 
 
-```{r comment=""}
+```{r echo=FALSE,echo=FALSE,comment=""}
 set.seed(1000)
 ps <- peopleself[sample(1:nrow(peopleself),140,replace=FALSE),]
 set.seed(1000)
@@ -145,23 +144,16 @@ kable(summarystatistics,caption="Table 2: Summary Statistics")
 
         
 ##### Exploratory Data Analysis
-```{r comment="",fig.align='center'}
+```{r echo=FALSE,comment="",fig.align='center'}
 # Boxplot of edit ratio for each portal #
 ggplot(wikifinal,aes(x=Portal,y=editratio,fill = Portal))+geom_boxplot()+ggtitle("Figure 1: Boxplot of Edit Ratio by Portals")
 
 ```
 
-As shown in Figure 1, the data for all five portals are right-skewed, suggesting that the
-median edit ratio is a better measure of central tendency than the mean edit ratio. While
-exploratory data analysis reveals that the distribution of the data for all of the portals were
-clearly non-normal, a pairwise Kolmogorov{Smirnov test testing each sample against the
-others indicated that the distributions were similarly skewed (the smallest p-value for these
-tests was 0.06). While ANOVA might be justifiable in such a situation, the non-parametric
-Kruskal{Wallis test is presumed more robust as it does not depend on the presumption of
-Knowing that the normality assumption for ANOVA is violated, Kruskal-Wallis Test- a non-parametric test is used in placed of ANOVA. There are several assumptions that Kruskal-Wallis Test requires. First, the dependent variable (eg.edit ratio) is ordinal. Second, the independent variable (eg. portal) is categorical. Since both assumption is fulfilled, we can proceed with Kruskal-Wallis Test to determine if the median of edit ratio is the same across the portals.  
+As shown in Figure 1, the data for all five portals are right-skewed, suggesting that the median edit ratio is a better measure of central tendency than the mean edit ratio. While exploratory data analysis reveals that the distribution of the data for all of the portals were clearly non-normal, a pairwise Kolmogorov{Smirnov test testing each sample against the others indicated that the distributions were similarly skewed (the smallest p-value for these tests was 0.06). While ANOVA might be justifiable in such a situation, the non-parametric Kruskal{Wallis test is presumed more robust as it does not depend on the presumption of normality.Knowing that the normality assumption for ANOVA is violated, Kruskal-Wallis Test- a non-parametric test is used in placed of ANOVA. There are several assumptions that Kruskal-Wallis Test requires. First, the dependent variable (eg.edit ratio) is ordinal. Second, the independent variable (eg. portal) is categorical. Since both assumption is fulfilled, we can proceed with Kruskal-Wallis Test to determine if the median of edit ratio is the same across the portals.  
 
 ##### Kruskal-Wallis rank sum test- One-Way-ANOVA for edit ratios 
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 kruskal.test(wikifinal$editratio ~ wikifinal$Portal)
 pvalue=kruskal.test(wikifinal$editratio ~ wikifinal$Portal)[3]$p.value
 
@@ -169,7 +161,7 @@ pvalue=kruskal.test(wikifinal$editratio ~ wikifinal$Portal)[3]$p.value
 Since the p-value is `r pvalue` which is greater than 0.05. We fail to reject the null hypothesis at 5 % of significant level and conclude that the population median are equal. 
 
 #### Question 2: Is there any relationship between the number of page views and the number of reverted edits?
-```{r comment="",fig.align='center'}
+```{r echo=FALSE,comment="",fig.align='center'}
 ## Question 2 ##
 
 top5=wiki[wiki$Portal %in% portal,] #Subset the top five portals
@@ -195,7 +187,7 @@ As you can easily see in the scatterplot, there is no relationship between Page 
 
 ####Question 3 Is there any difference in the response time (i.e., the time it takes to revert an "unconstructive" edit) among the different portals?
 
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 wikitime=read.csv("Wiki_timedata1.csv",header=TRUE)
 finaltime=merge(wiki,wikitime,by="Page.Title")
 mt=mean(finaltime$Average.response.time.seconds.)/60
@@ -216,7 +208,7 @@ As indicated in the Data Collection section, certain categories of articles are 
 The average response time is `r mt` minutes and the median is `r mdt` minutes while the standard deviation of the response time is `r sdt`. 
 
 ######Exploring the response time
-```{r, warning=FALSE}
+```{r echo=FALSE,warning=FALSE}
 #ggpairs(~finaltime[,c(Average.response.time.seconds.,Mobile..,Number.of.edits,Number.of.reverted.edits,Page.View)], data=finaltime)
 
 scatterplotMatrix(~Average.response.time.seconds.+Mobile..+Number.of.edits+Number.of.reverted.edits +Page.View|Status, data=finaltime,main="Figure 3: Scatter Plot Matrix")
@@ -226,7 +218,7 @@ b=a[a<150000] # Remove extreme outliers
 qplot(x=b,geom="histogram",xlab="Response Time (Minutes)",main="Figure 4: Histogram")
 ```
 
-```{r}
+```{r echo=FALSE}
 #Determining the shape and scale paramters for Weibull distribution
 lx <- log(b)
 m <- mean(lx)
@@ -240,7 +232,7 @@ qqPlot(b/60,distribution = "weibull",shape=shape,scale=scale,ylab="Response Time
 ```
 Figure 3 shows the results of exploratory data analysis of response time versus number of page views, number of edits, number of reverted edits, and mobile percentage; there appears to be no correlation. The right-skewness seen in Figure 4 suggests that mean is not an appropriate measure of central tendency for the response time; instead, the median is considered. (To wit, the data appear to be a Weibull distribution, per Figure 5; a rigorous goodness-of-fit could plausibly be run, but is unnecessary for the purposes of this question.)
 
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 peopleself <- subset(finaltime,Portal=="People and Self")
 cultureart <- subset(finaltime,Portal=="Culture and Arts")
 set.seed(57)
@@ -254,7 +246,7 @@ wilcox.test(ps$Average.response.time.seconds.,ca$Average.response.time.seconds.,
 When comparing between the top two portals, we found that wilcoxon test fails to reject the null hypothesis of equality. Therefore, we cannot conclude that the median response time between the top two portals are the same. 
 
 ####Question 4  Is there a difference in the response time between pages that are semi-protected versus those that are unprotected?
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 #spliting the data between semi-protected and non-protected
 npt=finaltime[finaltime$Status==0,]
 pt=finaltime[finaltime$Status==1,]
@@ -270,7 +262,7 @@ pt <- pt[sample(1:nrow(pt),176,replace=FALSE),]
 wikifinal3=rbind(npt,pt)
 ```
 
-```{r comment=""}
+```{r echo=FALSE,comment=""}
 #boxplot with sample data
 finaltime$Status=ifelse(finaltime$Status==0,"Unprotected","Protected")
 qplot(data=finaltime,x=Status,y=Average.response.time,geom="boxplot",main="Boxplot of Average Response Time per Status",ylab="Figure 6: Average Response Time (Minutes)")
@@ -308,7 +300,7 @@ plot(x=finaltime$Mobile..,y=finaltime$Average.response.time.seconds./60/60,xlab=
 
 #Discussion
 While this investigation does provide information about popular articles, the limitation of our data mining approach | that is, considering only the 5,000 most-popular articles as our population | does not allow us to necessarily extend the results to the entire population of Wikipedia articles. Altering the sampling algorithm to use an interval longer than one week might yield results that are more accurate in the long-run, and the population to be considered (i.e., all Wikipedia articles) might be better sampled by interacting with the
-MediaWiki API to use Wikipedia's random article function, might aord the ability to
+MediaWiki API to use Wikipedia's random article function, might afford the ability to
 conduct this analysis on otherwise unpopular articles. In doing so, portals that have fewer highly popular articles would be better represented; for example, while the Philosophy and Thinking portal has very few articles in the top 5,000 list, it contains a large number of unprotected articles that might on aggregate be more prone to vandalism than the highly- monitored People and Self portal.
 Likewise, in our study, we assumed that all edit summaries containing "revert" were done to revert unconstructive edits and that only the word \revert" was an indicator for an unconstructive edit being reverted, for simplicity. However, sometimes vandalism is disguisedwith the edit summary \revert", and thus that keyword by itself is not the best indicator of vandalism being reverted. Similarly, additional conditions, such as more granularity or additional keywords, could be included in the algorithm to determine if a revert is based on something unconstructive. This, of course, involves heuristics of the sort that are part of Wikipedia's anti-vandalism bots, and are beyond the scope of this investigation.
 #Conclusion
