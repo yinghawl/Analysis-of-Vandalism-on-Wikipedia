@@ -15,19 +15,19 @@ extending this to Wikipedia articles in general are considered for future applic
 ## Introduction
 On November 1, 2015 the number of articles on the English-language Wikipedia reached
 5,000,000 with the addition of Persoonia terminalis, about an Australian shrub.Since its
-creation in 2001, Wikipedia has served as a popular resource for information, but a com-
-mon concern about its use is its nature as the self-styled \free encyclopedia that anyone can
-edit" | detractors argue that its reliability is undermined by vandalism and insertion of false
+creation in 2001, Wikipedia has served as a popular resource for information, but a common concern 
+about its use is its nature as the encyclopedia that anyone can
+edit. Many argued that its reliability is undermined by vandalism and insertion of false
 content.Indeed, Wikipedia houses an article about its own reliability, and the Wikipedia
 community strives to be transparent about past problems and potential solutions.For
 example, since the creation and removal of false biographical content about the journalist
 John Siegenthaler, additional policies have been implemented to protect against the addi-
-tion of defamatory misinformation about living persons.[4] Other concerns have included
+tion of defamatory misinformation about living persons.Other concerns have included
 paid editing, whitewashing of biographical articles, and intentional misinformation, and the
 community has responded with additional policies and editing guidelines to minimize the
 damage caused by such editing. Likewise, in the short-run, diligent editors and automated
 processes are in place to revert edits deemed unconstructive.
-To investigate the nature of vandalism and its reversion on Wikipedia, data mining
+To investigate the nature of vandalism and its reversion on Wikipedia, **data mining**
 techniques were used to collect information about the editing history of a representative
 random sample of popular pages in the English-language Wikipedia's article namespace.
 The goal of this investigation is to provide some quantitative metrics about the reliability
