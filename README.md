@@ -42,15 +42,19 @@ While the goal of this investigation is, in essence, to answer the question \Is 
 Wikipedia articles reliable?", such a question is more subjective than objective. However,
 analyzing editing behavior can provide users of the site with some quantitative information
 about its reliability. The specfic questions considered in this analysis are:
-(1) Are the population edit ratios among the top five portals equal? That is, is the category
+
+1. Are the population edit ratios among the top five portals equal? That is, is the category
 of an article a good predictor of the percentage of edits that are unconstructive?
-(2) Is there a relationship between the number of page views and the number of reverted edits?
+
+2. Is there a relationship between the number of page views and the number of reverted edits?
 That is, is the viewership of an article a good predictor of the number of unconstructive
 edits?
-(3) Is there a difference in the response time among the different portals? That is, is the
+
+3. Is there a difference in the response time among the different portals? That is, is the
 category of an article a good predictor of how long it takes for an unconstructive edit to
 be reverted?
-(4) Is there a difference in the response time between pages that are semi-protected versus
+
+4. Is there adifference in the response time between pages that are semi-protected versus
 those that are unprotected? That is, is the protection status of an article a good predictor
 of how long it takes an unconstructive edit to be reverted?
 The terminology used in each question statement is defined as necessary in subsequent sec-
