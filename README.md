@@ -78,6 +78,7 @@ of articles about film, literature, sports, etc.) were the largest, with 1,554 a
 respectively; Geography and Places, History and Events, and Technology and Applied Sci-
 ences contained 296, 158, and 143 articles, respectively. The remaining seven portals contain
 fewer than 140 articles each.
+
 For quantitative data on the articles, the Python package mwclient was used to interface
 with the MediaWiki API. The variables collected for each observation for the one-week
 period were:
@@ -87,8 +88,10 @@ period were:
 - Reverted edits: the number of edits containing the word \revert" in the edit summary
 - Protection status: whether the article was semi-protected (i.e., restricted from editing
 by non-logged-in editors) or unprotected (freely editable)
+
 - Mobile percentage: percentage of page views coming from devices identified as having
 a mobile operating system
+
 The ratio of the number of edits that were reverted as above divided by the total number
 of edits over the one-week period, herein referred to as the \edit ratio", was also computed
 for each article. Also, for each reverted edit, the response time was also calculated by
