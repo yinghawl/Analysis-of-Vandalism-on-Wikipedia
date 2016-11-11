@@ -27,7 +27,7 @@ paid editing, whitewashing of biographical articles, and intentional misinformat
 community has responded with additional policies and editing guidelines to minimize the
 damage caused by such editing. Likewise, in the short-run, diligent editors and automated
 processes are in place to revert edits deemed unconstructive.
-To investigate the nature of vandalism and its reversion on Wikipedia, **data mining**
+To investigate the nature of vandalism and its reversion on Wikipedia, data mining
 techniques were used to collect information about the editing history of a representative
 random sample of popular pages in the English-language Wikipedia's article namespace.
 The goal of this investigation is to provide some quantitative metrics about the reliability
